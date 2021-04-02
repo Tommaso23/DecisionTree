@@ -49,7 +49,7 @@ def decision_tree_learner(dataset, error_threshold):
                 p = count(target, v, examples) / len(examples)
                 if (p != 0):
                     e += ((-p) * math.log2(p))
-        #print(e)
+
         return e
 
     def information_gain(a, examples):
