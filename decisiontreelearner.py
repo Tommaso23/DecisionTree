@@ -44,6 +44,7 @@ def decision_tree_learner(dataset, error_threshold):
 
     def entropy_bits(examples):
         e = 0
+        max=0
         for v in values[target]:
             if len(examples) != 0:
                 p = count(target, v, examples) / len(examples)
