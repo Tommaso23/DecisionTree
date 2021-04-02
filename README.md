@@ -1,6 +1,7 @@
 # DecisionTree
-This project is about learning from decision tree, using a simple pruning tecnhique
-
+This project is about learning from decision tree, using a simple pruning tecnhique.
+## How to use:
+Use all the files in the repository and run the main.py. Uncomment the code releated to the dataset you want to test.
 ## Repository Overview:
 The repository has 6 files:
 - dataset.py: class to represent a given dataset
