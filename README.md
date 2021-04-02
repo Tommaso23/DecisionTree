@@ -12,9 +12,9 @@ The repository has 6 files:
 
 ## Dataset:
 You can download the 3 datasets used from the following links:
-car-evaluation: https://archive.ics.uci.edu/ml/datasets/Car+Evaluation
-balance-scale: https://archive.ics.uci.edu/ml/datasets/Balance+Scale
-tic-tac-toe: https://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
+- car-evaluation: https://archive.ics.uci.edu/ml/datasets/Car+Evaluation
+- balance-scale: https://archive.ics.uci.edu/ml/datasets/Balance+Scale
+- tic-tac-toe: https://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
 
 ## Requirements:
 All the code is written in python 3
