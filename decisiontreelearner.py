@@ -87,10 +87,11 @@ def decision_tree_learner(dataset, error_threshold):
             return [x for x in seq if x != item]
 
 
-    def pruning(examples): #calcola la percentuale di quelli sbagliati
-        p_v = plurality_value(examples)
-        num_max = count(target, p_v, examples)
-        return 100 - num_max*100/len(examples)
+    def pruning(examples): #calcola la percentuale di errore
+        p_v = plurality_value(examples) #foglia col valore di target maggiore
+        major_value = p_v.result #valore maggiore
+        num_max = count(target, major_value, examples) #conta gli esempi che hanno
+        return 100 - ((num_max/len(examples))*100)
 
     return decision_tree_learning(dataset.examples, dataset.inputs)
 

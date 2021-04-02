@@ -10,7 +10,6 @@ from decisiontreelearner import *
 import matplotlib.pyplot as plt
 
 
-
 # DataSet 1: CAR EVALUATION_____________________________________________________________________________________________
 
 car_names = {0: 'buying', 1: 'maint', 2: 'doors', 3: 'persons', 4: 'lug_boot', 5: 'safety', 6: 'evaluation'}
@@ -25,7 +24,7 @@ car_values = {0: ['vhigh', 'high', 'med', 'low'],
 dataset = create_dataset('car.txt', car_names, 6, car_values)
 dataset.examples, val, test = train_val_test(dataset, 60, 20)
 
-'''tree = decision_tree_learner(dataset, error_threshold=10)
+'''tree = decision_tree_learner(dataset, error_threshold=100)
 print(accuracy(dataset.examples, 6, tree))
 print(accuracy(val, 6, tree))
 print(accuracy(test, 6, tree))'''
@@ -61,7 +60,7 @@ train_results = []
 val_results = []
 test_results = []
 
-for i in range(0, 101, 1):
+for i in range(100, 0, -5):
     tree = decision_tree_learner(dataset, entropy_threshold=i/100)
     threshold.append(i/100)
     train_results.append(accuracy(dataset.examples, 0, tree))
@@ -93,12 +92,13 @@ train_results = []
 val_results = []
 test_results = []
 
-for i in range(0, 101, 1):
+for i in range(100, 0, -5):
     tree = decision_tree_learner(dataset, entropy_threshold=i/100)
     threshold.append(i/100)
     train_results.append(accuracy(dataset.examples, 9, tree))
     val_results.append(accuracy(val, 9, tree))
     test_results.append(accuracy(test, 9, tree))'''
+
 
 
 max_index = val_results.index(max(val_results))
@@ -108,14 +108,16 @@ print('test_accuracy without pruning', test_results[0], '%')
 print('train_accuracy at index of max val result: ', train_results[max_index], '%')
 print('val_accuracy at index of max val result: ', val_results[max_index], '%')
 print('test_accuracy at index of max val result: ', test_results[max_index], '%')
-print('entropy threshold to reach max value: ', max_index)
+print('error threshold to reach max value: ', max_index)
+
+
 
 plt.plot(max_index, val_results[max_index], "ro")
 plt.plot(threshold, train_results, label="train")
 plt.plot(threshold, val_results, label="val")
 plt.plot(threshold, test_results, label="test")
 plt.legend()
-plt.xlabel('entropy_threshold')
+plt.xlabel('error_threshold')
 plt.ylabel('accuracy')
 plt.show()
 
