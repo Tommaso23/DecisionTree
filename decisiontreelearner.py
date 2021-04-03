@@ -16,7 +16,7 @@ def decision_tree_learner(dataset, error_threshold):
             return DecisionLeaf(examples[0][target])
         elif len(attributes) == 0:
             return plurality_value(examples)
-        elif pruning(examples) < error_threshold:
+        elif percent_error(examples) < error_threshold:
             return plurality_value(examples)
         else:
             a = importance(attributes, examples)
@@ -49,7 +49,6 @@ def decision_tree_learner(dataset, error_threshold):
                 p = count(target, v, examples) / len(examples)
                 if (p != 0):
                     e += ((-p) * math.log2(p))
-        #print(e)
         return e
 
     def information_gain(a, examples):
@@ -87,7 +86,7 @@ def decision_tree_learner(dataset, error_threshold):
             return [x for x in seq if x != item]
 
 
-    def pruning(examples): #calcola la percentuale di errore
+    def percent_error(examples): #calcola la percentuale di errore
         p_v = plurality_value(examples) #foglia col valore di target maggiore
         major_value = p_v.result #valore maggiore
         num_max = count(target, major_value, examples) #conta gli esempi che hanno
