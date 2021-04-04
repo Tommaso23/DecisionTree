@@ -86,10 +86,10 @@ def decision_tree_learner(dataset, error_threshold):
             return [x for x in seq if x != item]
 
 
-    def percent_error(examples): #calcola la percentuale di errore
-        p_v = plurality_value(examples) #foglia col valore di target maggiore
-        major_value = p_v.result #valore maggiore
-        num_max = count(target, major_value, examples) #conta gli esempi che hanno
+    def percent_error(examples):
+        p_v = plurality_value(examples)
+        major_value = p_v.result 
+        num_max = count(target, major_value, examples)
         return 100 - ((num_max/len(examples))*100)
 
     return decision_tree_learning(dataset.examples, dataset.inputs)

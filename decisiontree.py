@@ -16,12 +16,7 @@ class DecisionTree:
         self.branches[value] = subtree
 
 
-    def display(self, indent=0):
-        name = self.attrname
-        print('TEST', name)
-        for (val, subtree) in self.branches.items():
-            print(' ' * 4 * indent, name, '=', val, '==>', end=' ')
-            subtree.display()
+
 
 
 

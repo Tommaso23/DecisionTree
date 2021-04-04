@@ -8,8 +8,7 @@ class DecisionLeaf:
     def __call__(self, example):
         return self.result
 
-    def display(self):
-        print('RESULT =', self.result)
+
 
 
 
