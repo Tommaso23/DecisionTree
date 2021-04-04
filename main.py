@@ -1,6 +1,8 @@
 """
 Questo file contiene le funzioni per effettuare i test sui 3 dataset scelti.
-Per effettuare i test bisogna commentare la parte di codice relativa ai due dataset che non si vuole testare.
+
+Per effettuare i test bisogna commentare la parte di codice relativa ai restanti due dataset che non si vuole testare.
+
 Testare un dataset alla volta
 """
 
@@ -21,9 +23,8 @@ car_values = {0: ['vhigh', 'high', 'med', 'low'],
               5: ['low', 'med', 'high'],
               6: ['unacc', 'acc', 'good', 'vgood']}
 
-'''dataset = create_dataset('car.txt', car_names, 6, car_values)
+dataset = create_dataset('car.txt', car_names, 6, car_values)
 dataset.examples, val, test = train_val_test(dataset, 60, 20)
-
 
 threshold = []
 train_results = []
@@ -35,7 +36,7 @@ for i in range(0, 100):
     threshold.append(i)
     train_results.append(accuracy(dataset.examples, 6, tree))
     val_results.append(accuracy(val, 6, tree))
-    test_results.append(accuracy(test, 6, tree))'''
+    test_results.append(accuracy(test, 6, tree))
 
 # DataSet 2: BALANCE SCALE______________________________________________________________________________________________
 
@@ -65,8 +66,9 @@ for i in range(0, 100):
 
 
 # DataSet 3: TIC TAC TOE________________________________________________________________________________________________
-ttt_names = {0: 'top-left-square', 1: 'top-middle-square', 2: 'top-right-square', 3: 'middle-left-square', 4: 'middle-middle-square',
-             5: 'middle-right-square', 6: 'bottom-left-square', 7: 'bottom-middle-square', 8: 'bottom-right-square', 9: 'outcome'}
+ttt_names = {0: 'top-left-square', 1: 'top-middle-square', 2: 'top-right-square', 3: 'middle-left-square',
+             4: 'middle-middle-square', 5: 'middle-right-square', 6: 'bottom-left-square', 7: 'bottom-middle-square',
+             8: 'bottom-right-square', 9: 'outcome'}
 ttt_values = {0: ['x', 'o', 'b'],
              1: ['x', 'o', 'b'],
              2: ['x', 'o', 'b'],
@@ -80,7 +82,7 @@ ttt_values = {0: ['x', 'o', 'b'],
 
 
 
-dataset = create_dataset('tic-tac-toe.txt', ttt_names, 9, ttt_values)
+''''dataset = create_dataset('tic-tac-toe.txt', ttt_names, 9, ttt_values)
 dataset.examples, val, test = train_val_test(dataset, 60, 20)
 
 threshold = []
@@ -93,9 +95,11 @@ for i in range(0, 100):
     threshold.append(i)
     train_results.append(accuracy(dataset.examples, 9, tree))
     val_results.append(accuracy(val, 9, tree))
-    test_results.append(accuracy(test, 9, tree))
+    test_results.append(accuracy(test, 9, tree))'''
 
 
+
+# LASCIARE LA SEGUENTE PARTE SEMPRE NON COMMENTATA
 
 max_index = val_results.index(max(val_results))
 print('train_accuracy without pruning', train_results[0], '%')
@@ -104,7 +108,7 @@ print('test_accuracy without pruning', test_results[0], '%')
 print('train_accuracy at index of max val result: ', train_results[max_index], '%')
 print('val_accuracy at index of max val result: ', val_results[max_index], '%')
 print('test_accuracy at index of max val result: ', test_results[max_index], '%')
-print('error threshold to reach max value: ', max_index)
+print('error threshold to reach max value: ', max_index/100)
 
 
 plt.scatter(max_index, val_results[max_index])
@@ -117,7 +121,6 @@ plt.ylabel('accuracy')
 plt.show()
 
 print("percentage of improvement on test_set after pruning: ", test_results[max_index] - test_results[0], '%')
-
 
 
 
