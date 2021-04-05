@@ -108,7 +108,7 @@ print('test_accuracy without pruning', test_results[0], '%')
 print('train_accuracy at index of max val result: ', train_results[max_index], '%')
 print('val_accuracy at index of max val result: ', val_results[max_index], '%')
 print('test_accuracy at index of max val result: ', test_results[max_index], '%')
-print('error threshold to reach max value: ', max_index/100)
+print('error threshold to reach max value: ', max_index)
 
 
 plt.scatter(max_index, val_results[max_index])
